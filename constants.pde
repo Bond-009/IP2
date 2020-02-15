@@ -1,14 +1,13 @@
-final int BlockScale = 2;
-final int StoredBlockHeight = 16;
-final int BlockHeight = BlockScale * StoredBlockHeight;
+final static int BlockScale = 2;
+final static int StoredBlockHeight = 16;
+final static int BlockHeight = BlockScale * StoredBlockHeight;
 
-final int ScreenWidth = 720;
-final int ScreenHeight = 480;
+final static int MapWidth = 128;
+final static int MapHeight = 64;
+final static int MapLength = MapWidth * MapHeight;
+final static int RenderDistance = 12;
 
-final int MapWidth = 128;
-final int MapHeight = 64;
-final int MapLength = MapWidth * MapHeight;
-final int RenderDistance = 6;
+final static int PlayerWidth = BlockHeight;
+final static int PlayerHeigth = BlockHeight * 2;
 
-
-final boolean DrawFPS = true;
+final static boolean DrawFPS = true;
