@@ -2,15 +2,21 @@ class Player {
   public Player(int posX, int posY) {
     PosX = posX;
     PosY = posY;
-    texture = loadImage("player.png");
+
+    playerTextures = new PImage[4];
+    playerTextures[0] = loadImage("player_right.png");
+    playerTextures[1] = loadImage("player_left.png");
+    playerTextures[2] = loadImage("player_dyn_right.png");
+    playerTextures[3] = loadImage("player_dyn_left.png");
   }
   
   public int PosX;
   public int PosY;
-  public Running running = Running.No;
+  Running running = Running.No;
+  /// Previous running state
+  Running pRunning = Running.No;
   
-  
-  PImage texture;
+  PImage[] playerTextures;
   Running isRunning = Running.No;
   int framesJumping = -1;
   
@@ -54,7 +60,23 @@ class Player {
       }
     }
     
-    image(texture, widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+    switch (running) {
+      case No:
+        if (pRunning == Running.No || pRunning == Running.Right) {
+          image(playerTextures[0], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+        } else {
+          image(playerTextures[1], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+        }
+        
+        break;
+      case Right:
+        image(playerTextures[framesJumping != -1 || (frameCount & 0x0f) < 8 ? 2: 0], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+        break;
+      case Left:
+        image(playerTextures[framesJumping != -1 || (frameCount & 0x0f) < 8 ? 3: 1], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+        break;
+    }
+    
   }
   
   public boolean isJumping() {
@@ -65,6 +87,11 @@ class Player {
     if (framesJumping == -1) {
       framesJumping = 0;
     }
+  }
+  
+  public void setRunning(Running newRunning) {
+    pRunning = running;
+    running = newRunning;
   }
 }
 

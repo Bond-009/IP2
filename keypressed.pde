@@ -14,11 +14,11 @@ void keyPressed() {
   if (menu == null) {
     if (key == 'q' || key == 'Q')
     {
-      player.running = Running.Left;
+      player.setRunning(Running.Left);
     }
     
     if (key == 'd' || key == 'D') {
-      player.running = Running.Right;
+      player.setRunning(Running.Right);
     }
     
     if (key == ' ') {
@@ -32,11 +32,11 @@ void keyReleased() {
   if (menu == null) {
     if ((key == 'q' || key == 'Q') && player.running == Running.Left)
     {
-      player.running = Running.No;
+      player.setRunning(Running.No);
     }
     
     if ((key == 'd' || key == 'D') && player.running == Running.Right) {
-      player.running = Running.No;
+      player.setRunning(Running.No);
     }
   }
 }

@@ -34,15 +34,7 @@ void draw()
   textSize(32);
   text("Pos: (" + blockX + ", " + blockY + ")", 0, 32);
   
-  // TODO: draw vignette
-  /*int lightDistance = RenderDistance * BlockHeight;
-  for (int px = 0; px < width; px++) {
-    for (int py = 0; py < height; py++) {
-      if (abs(px - WidthCenter) <= lightDistance && abs(py - HeightCenter) <= lightDistance) {
-        
-      }
-    }
-  }*/
+  image(vignette, 0, 0);
   
   player.draw();
   
@@ -50,7 +42,7 @@ void draw()
     cursor(ARROW);
     menu.draw();
   } else {
-    byte blockId = map.getBlockId((player.PosX + mouseX - widthCenter) / BlockHeight, (player.PosY - mouseY + heightCenter) / BlockHeight + 1);
+    byte blockId = map.getBlockId((player.PosX + mouseX - widthCenter) / BlockHeight, (player.PosY + mouseY - heightCenter) / BlockHeight);
     if (BlockId.isUsable(blockId))
     {
       cursor(HAND);

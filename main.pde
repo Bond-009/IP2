@@ -5,6 +5,7 @@ Map map;
 PImage[] textures;
 Player player;
 Menu menu = null;
+PGraphics vignette;
 
 void setup()
 {
@@ -24,5 +25,28 @@ void setup()
   
   map = new Map();
   
-  player = new Player(0, 1024);
+  player = new Player(0, 0);
+  
+  // Draw vignette
+  vignette = createGraphics(width, height);
+  vignette.noSmooth();
+  vignette.beginDraw();
+  int lightDistance = RenderDistance * BlockHeight - BlockHeight * 2;
+  
+  for (int px = 0; px < width; px++) {
+    for (int py = 0; py < height; py++) {
+      float dist = dist(px, py, widthCenter + BlockHeight / 2, heightCenter + BlockHeight);
+      if (dist > lightDistance) {
+        vignette.stroke(0);
+        vignette.point(px, py);
+    } /*
+    REVIEW: transition doesn't function:
+    else if (dist > lightDistance - 48) {
+        vignette.stroke(0, 255 - (dist - lightDistance + 48) / 48 * 255);
+        vignette.point(px, py);
+      } */
+    }
+  }
+  
+  vignette.endDraw();
 }
