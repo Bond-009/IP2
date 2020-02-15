@@ -7,6 +7,27 @@ class Button {
     Heigth = bHeight;
     Width = bWidth;
     Text = text;
+    
+    graphic = createGraphics(bWidth, bHeight);
+    graphic.noSmooth();
+    graphic.beginDraw();
+    graphic.noStroke();
+
+    graphic.fill(0, 0, 0);
+    graphic.rect(0, 0, Width, Heigth);
+
+    graphic.fill(150, 150, 150);
+    graphic.rect(BorderWidth, BorderWidth, Width - BorderWidth * 2, Heigth - BorderWidth * 2);
+
+    graphic.fill(180, 180, 180);
+    graphic.rect(BorderWidth, BorderWidth, Width - BorderWidth * 2, BorderWidth);
+    graphic.rect(BorderWidth, BorderWidth, BorderWidth, Heigth - BorderWidth * 2);
+
+    graphic.fill(70, 70, 70);
+    graphic.rect(BorderWidth, Heigth - BorderWidth * 2, Width - BorderWidth * 2, BorderWidth);
+    graphic.rect(Width - BorderWidth * 2, BorderWidth, BorderWidth, Heigth - BorderWidth * 2);
+
+    graphic.endDraw();
   }
   
   public int X;
@@ -14,21 +35,10 @@ class Button {
   public int Heigth;
   public int Width;
   public String Text;
+  PGraphics graphic;
   
   public void draw() {
-    fill(0, 0, 0);
-    rect(X, Y, Width, Heigth);
-    
-    fill(150, 150, 150);
-    rect(X + BorderWidth, Y + BorderWidth, Width - BorderWidth * 2, Heigth - BorderWidth * 2);
-    
-    fill(180, 180, 180);
-    rect(X + BorderWidth, Y + BorderWidth, Width - BorderWidth * 2, BorderWidth);
-    rect(X + BorderWidth, Y + BorderWidth, BorderWidth, Heigth - BorderWidth * 2);
-    
-    fill(70, 70, 70);
-    rect(X + BorderWidth, Y + Heigth - BorderWidth * 2, Width - BorderWidth * 2, BorderWidth);
-    rect(X + Width - BorderWidth * 2, Y + BorderWidth, BorderWidth, Heigth - BorderWidth * 2);
+    image(graphic, X, Y);
     
     boolean mouseHover = mouseX > X && mouseX < X + Width && mouseY > Y && mouseY < Y + Heigth;
     if (mouseHover) {

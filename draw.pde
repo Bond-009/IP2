@@ -1,8 +1,29 @@
 void draw()
 {
+  if (menu != null) {
+    cursor(ARROW);
+    menu.draw();
+  } else {
+    drawGame();
+  }
+  
+  // Draw FPS indicator
+  if (DrawFPS) {
+    // Don't write over previous FPS
+    if (menu != null) {
+      fill(0);
+      rect(width - 128, 0, 128, 32);
+    }
+
+    fill(0, 255, 0);
+    textSize(32);
+    text("FPS: " + floor(frameRate), width - 128, 32);
+  }
+}
+
+void drawGame() {
   clear();
   
-  // 
   int blockX = player.PosX / BlockHeight;
   int blockY = player.PosY / BlockHeight;
   
@@ -38,24 +59,12 @@ void draw()
   
   player.draw();
   
-  if (menu != null) {
-    cursor(ARROW);
-    menu.draw();
-  } else {
-    byte blockId = map.getBlockId((player.PosX + mouseX - widthCenter) / BlockHeight, (player.PosY + mouseY - heightCenter) / BlockHeight);
-    if (BlockId.isUsable(blockId))
-    {
-      cursor(HAND);
-    }
-    else {
-      cursor(CROSS);
-    }
+  byte blockId = map.getBlockId((player.PosX + mouseX - widthCenter) / BlockHeight, (player.PosY + mouseY - heightCenter) / BlockHeight);
+  if (BlockId.isUsable(blockId))
+  {
+    cursor(HAND);
   }
-
-  // Draw FPS indicator
-  if (DrawFPS) {
-    fill(0, 255, 0);
-    textSize(32);
-    text("FPS: " + floor(frameRate), width - 128, 32);
-  }
+  else {
+    cursor(CROSS);
+  } 
 }
