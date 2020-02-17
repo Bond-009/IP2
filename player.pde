@@ -63,9 +63,9 @@ class Player {
     switch (running) {
       case No:
         if (pRunning == Running.No || pRunning == Running.Right) {
-          image(playerTextures[0], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+          image(playerTextures[framesJumping == -1 ? 0 : 2], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
         } else {
-          image(playerTextures[1], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
+          image(playerTextures[framesJumping == -1 ? 1 : 3], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
         }
         
         break;
