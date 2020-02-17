@@ -9,17 +9,16 @@ class Player {
     playerTextures[2] = loadImage("player_dyn_right.png");
     playerTextures[3] = loadImage("player_dyn_left.png");
   }
-  
+
   public int PosX;
   public int PosY;
   Running running = Running.No;
   /// Previous running state
   Running pRunning = Running.No;
-  
+
   PImage[] playerTextures;
-  Running isRunning = Running.No;
   int framesJumping = -1;
-  
+
   // Jump length in frames
   final int jumpLength = 15;
   final int jumpCooldown = 30;
@@ -36,13 +35,13 @@ class Player {
       case No:
         break;
     }
-    
+
     if (framesJumping == jumpCooldown) {
       framesJumping = -1;
     } else if (framesJumping != -1) {
       framesJumping++;
     }
-    
+
     if (isJumping()) {
       PosY -= 4;
     } else {
@@ -55,11 +54,11 @@ class Player {
           int rem = player.PosY % BlockHeight;
           PosY += rem >= 4 || rem == 0 ? 4 : rem;
         } else {
-          PosY +=4;
+          PosY += 4;
         }
       }
     }
-    
+
     switch (running) {
       case No:
         if (pRunning == Running.No || pRunning == Running.Right) {
@@ -67,7 +66,7 @@ class Player {
         } else {
           image(playerTextures[framesJumping == -1 ? 1 : 3], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
         }
-        
+
         break;
       case Right:
         image(playerTextures[framesJumping != -1 || (frameCount & 0x0f) < 8 ? 2: 0], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
@@ -76,19 +75,19 @@ class Player {
         image(playerTextures[framesJumping != -1 || (frameCount & 0x0f) < 8 ? 3: 1], widthCenter, heightCenter, PlayerWidth, PlayerHeigth);
         break;
     }
-    
+
   }
-  
+
   public boolean isJumping() {
     return framesJumping != -1 && framesJumping <= jumpLength;
   }
-  
+
   public void jump() {
     if (framesJumping == -1) {
       framesJumping = 0;
     }
   }
-  
+
   public void setRunning(Running newRunning) {
     pRunning = running;
     running = newRunning;
