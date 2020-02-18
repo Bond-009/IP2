@@ -1,4 +1,4 @@
-class Player {
+public class Player {
   public Player(int posX, int posY) {
     PosX = posX;
     PosY = posY;
@@ -45,10 +45,10 @@ class Player {
     if (isJumping()) {
       PosY -= 4;
     } else {
-      byte blockInfo = map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 2);
-      if ((blockInfo & 0x80) == 0x80)
+      if ((map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 2) & 0x80) == 0x80
+        && (map.getBlockInfo((player.PosX + BlockHeight - 1) / BlockHeight, player.PosY / BlockHeight + 2) & 0x80) == 0x80)
       {
-        blockInfo = map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 3);
+        byte blockInfo = map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 3);
         if ((blockInfo & 0x80) != 0x80)
         {
           int rem = player.PosY % BlockHeight;

@@ -16,6 +16,9 @@ class Map {
 
     map[8 * MapWidth + 8] = BlockId.OakDoorLowerBlock;
     map[7 * MapWidth + 8] = BlockId.OakDoorUpperBlock;
+    map[9 * MapWidth + 8] = BlockId.StoneBlock;
+    map[9 * MapWidth + 7] = BlockId.StoneBlock;
+    map[9 * MapWidth + 9] = BlockId.StoneBlock;
   }
 
   int getMapPos(int x, int y) {

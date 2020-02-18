@@ -62,9 +62,7 @@ abstract class Button {
     text(Text, X + BorderWidth * BorderWidth - BorderWidth, Y + Height / 1.25 - BorderWidth);
   }
   
-  public void clicked() {
-    
-  }
+  public abstract void clicked();
 }
 
 public class QuitButton extends Button {

@@ -1,10 +1,10 @@
-static class BlockId
+public static class BlockId
 {
   final static byte StoneBlock = 1;
   final static byte OakDoorLowerBlock = 6;
   final static byte OakDoorUpperBlock = 64;
 
-  static boolean isUsable(int blockId)
+  public static boolean isUsable(int blockId)
   {
     switch (blockId)
     {
