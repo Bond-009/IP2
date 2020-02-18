@@ -12,6 +12,21 @@ abstract class Menu {
       buttons[i].draw();
     }
   }
+  
+  void mouseClicked() {
+    int mX = mouseX;
+    int mY = mouseY;
+    int buttonsLen = buttons.length;
+    for (int i = 0; i < buttonsLen; i++) {
+      int bX = buttons[i].X;
+      int bY = buttons[i].Y;
+      if (mX >= bX && mX <= bX + buttons[i].Width && mY >= bY && mY <= bY + buttons[i].Height)
+      {
+        buttons[i].clicked();
+        break;
+      }
+    }
+  }
 }
 
 class EscMenu extends Menu {
@@ -19,6 +34,6 @@ class EscMenu extends Menu {
     super();
     
     buttons = new Button[1];
-    buttons[0] = new Button(width / 2 - 128, height / 2 - 64, 265, 128, "Quit");
+    buttons[0] = new QuitButton(width / 2 - 128, height / 2 - 64, 265, 128, "Quit");
   }
 }

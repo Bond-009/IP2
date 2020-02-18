@@ -1,6 +1,7 @@
 void mouseClicked() {
   if (menu != null)
   {
+    menu.mouseClicked();
     return;
   }
   
