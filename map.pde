@@ -9,7 +9,7 @@ class Map {
        map[i] = (byte)0x81;
     }
     
-    for (int i = MapLength - MapWidth * 6; i < MapLength - MapWidth * 5; i++)
+    for (int i = MapLength - MapWidth * 5; i < MapLength - MapWidth * 4; i++)
     {
        map[i] = 1;
     }

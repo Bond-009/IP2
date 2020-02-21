@@ -1,4 +1,4 @@
-final static int BlockScale = 2;
+final static int BlockScale = 5;
 final static int StoredBlockHeight = 16;
 final static int BlockHeight = BlockScale * StoredBlockHeight;
 

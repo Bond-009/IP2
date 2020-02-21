@@ -27,9 +27,9 @@ public class Player {
     switch (running)
     {
       case Left:
-        if ((map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight) & 0x80) != 0x80
-         || (map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 1) & 0x80) != 0x80
-         || (map.getBlockInfo(player.PosX / BlockHeight, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
+        if ((map.getBlockInfo((player.PosX - 1) / BlockHeight, player.PosY / BlockHeight) & 0x80) != 0x80
+         || (map.getBlockInfo((player.PosX - 1) / BlockHeight, player.PosY / BlockHeight + 1) & 0x80) != 0x80
+         || (map.getBlockInfo((player.PosX - 1) / BlockHeight, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
         {
           break;
         }
@@ -37,9 +37,9 @@ public class Player {
         PosX -= 2;
         break;
       case Right:
-        if ((map.getBlockInfo((player.PosX + 1) / BlockHeight + 1, player.PosY / BlockHeight) & 0x80) != 0x80
-         || (map.getBlockInfo((player.PosX + 1) / BlockHeight + 1, player.PosY / BlockHeight + 1) & 0x80) != 0x80
-         || (map.getBlockInfo((player.PosX + 1) / BlockHeight + 1, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
+        if ((map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight) & 0x80) != 0x80
+         || (map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight + 1) & 0x80) != 0x80
+         || (map.getBlockInfo(player.PosX / BlockHeight + 1, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
         {
           break;
         }
@@ -58,10 +58,21 @@ public class Player {
     }
 
     if (isJumping()) {
-      PosY -= 4;
+      if ((map.getBlockInfo(player.PosX / BlockHeight, (player.PosY - 1) / BlockHeight) & 0x80) == 0x80
+        && (map.getBlockInfo((player.PosX - 1) / BlockHeight + 1, (player.PosY - 1) / BlockHeight) & 0x80) == 0x80)
+      {
+        byte blockInfo = map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight - 1);
+        if ((blockInfo & 0x80) != 0x80)
+        {
+          int rem = player.PosY % BlockHeight;
+          PosY -= rem >= 4 || rem == 0 ? 4 : rem;
+        } else {
+          PosY -= 4;
+        }
+      }
     } else {
-      if ((map.getBlockInfo((player.PosX + 1) / BlockHeight, player.PosY / BlockHeight + 2) & 0x80) == 0x80
-        && (map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight + 2) & 0x80) == 0x80)
+      if ((map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 2) & 0x80) == 0x80
+        && (map.getBlockInfo((player.PosX - 1) / BlockHeight + 1, player.PosY / BlockHeight + 2) & 0x80) == 0x80)
       {
         byte blockInfo = map.getBlockInfo(player.PosX / BlockHeight, player.PosY / BlockHeight + 3);
         if ((blockInfo & 0x80) != 0x80)

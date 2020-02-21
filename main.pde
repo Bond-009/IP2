@@ -24,7 +24,7 @@ void setup() {
 
   map = new Map();
 
-  player = new Player(265, 0);
+  player = new Player(256, 64 * 64 - 64 * 3);
 
   // Draw vignette
   vignette = createGraphics(width, height);
