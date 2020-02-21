@@ -8,6 +8,11 @@ class Map {
     {
        map[i] = (byte)0x81;
     }
+    
+    for (int i = MapLength - MapWidth * 6; i < MapLength - MapWidth * 5; i++)
+    {
+       map[i] = 1;
+    }
 
     for (int i = MapLength - MapWidth; i < MapLength; i++)
     {
