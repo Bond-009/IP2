@@ -9,13 +9,19 @@ PGraphics vignette;
 
 void setup() {
   // Set screen size
-  size(1920, 1080);
+  size(1920, 1080, UseOpenGL ? P2D : JAVA2D);
+  if (UseOpenGL) {
+    hint(DISABLE_TEXTURE_MIPMAPS);
+    ((PGraphicsOpenGL)g).textureSampling(2);
+  }
+  
   widthCenter = width / 2;
   heightCenter = height / 2;
 
+  pixelDensity(1);
   noStroke();
   noSmooth();
-
+  
   // Load textures
   textures = new PImage[128];
   textures[BlockId.StoneBlock] = loadImage("stone.png");
@@ -24,7 +30,7 @@ void setup() {
 
   map = new Map();
 
-  player = new Player(256, 64 * 64 - 64 * 3);
+  player = new Player(256, 0);
 
   // Draw vignette
   vignette = createGraphics(width, height);

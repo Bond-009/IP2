@@ -8,7 +8,7 @@ abstract class Button {
     Width = bWidth;
     Text = text;
     
-    graphic = createGraphics(bWidth, bHeight);
+    graphic = createGraphics(bWidth, bHeight, UseOpenGL ? P2D : JAVA2D);
     graphic.noSmooth();
     graphic.beginDraw();
     graphic.noStroke();

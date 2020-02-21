@@ -1,4 +1,4 @@
-final static int BlockScale = 5;
+final static int BlockScale = 2;
 final static int StoredBlockHeight = 16;
 final static int BlockHeight = BlockScale * StoredBlockHeight;
 
@@ -12,3 +12,4 @@ final static int PlayerWidth = BlockHeight;
 final static int PlayerHeigth = BlockHeight * 2;
 
 final static boolean DrawFPS = true;
+final static boolean UseOpenGL = true;
