@@ -48,11 +48,11 @@ void drawGame() {
     }
   }
 
-  fill(0, 255, 0);
-  textSize(32);
-  text("Pos: (" + blockX + ", " + blockY + ")", 0, 32);
-
   image(vignette, 0, 0);
+  
+  //fill(0, 255, 0);
+  //textSize(32);
+  //text("Pos: (" + blockX + ", " + blockY + ")", 0, 32);
 
   player.draw();
 

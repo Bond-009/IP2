@@ -9,7 +9,8 @@ PGraphics vignette;
 
 void setup() {
   // Set screen size
-  size(1920, 1080, UseOpenGL ? P2D : JAVA2D);
+  // size(1920, 1080, UseOpenGL ? P2D : JAVA2D);
+  fullScreen(UseOpenGL ? P2D : JAVA2D);
   if (UseOpenGL) {
     hint(DISABLE_TEXTURE_MIPMAPS);
     ((PGraphicsOpenGL)g).textureSampling(2);
