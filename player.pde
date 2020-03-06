@@ -118,6 +118,15 @@ public class Player {
     pRunning = running;
     running = newRunning;
   }
+  
+  public void use(int x, int y) {
+    BlockEntity blockEntity = blockEntities.get(y * MapWidth + x);
+    if (blockEntity == null) {
+      return; 
+    }
+    
+    blockEntity.use(x, y, this);
+  }
 }
 
 enum Running {

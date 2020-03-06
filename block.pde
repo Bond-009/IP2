@@ -53,7 +53,6 @@ public static class BlockId {
   final static byte WoolColoredPurpleBlock = 52;
   final static byte WoolColoredRedBlock = 53;
   final static byte WoolColoredYellowBlock = 54;
-  
 
   public static boolean isUsable(int blockId) {
     switch (blockId) {
@@ -63,13 +62,5 @@ public static class BlockId {
       default:
         return false;
     }
-  }
-  
-  public static void use(int blockId, int x, int y) {
-    if (!isUsable(blockId)) {
-      return;
-    }
-    
-    // TODO:
   }
 }

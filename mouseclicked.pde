@@ -9,7 +9,6 @@ void mouseClicked() {
   if (dist(0, 0, relMouseX, relMouseY) <= UseDistance) {
     int blockX = (player.PosX + relMouseX) / BlockHeight;
     int blockY = (player.PosY + relMouseY) / BlockHeight;
-    byte blockId = map.getBlockId(blockX, blockY);
-    BlockId.use(blockId, blockX, blockY);
+    player.use(blockX, blockY);
   }
 }

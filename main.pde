@@ -2,6 +2,7 @@ static int widthCenter;
 static int heightCenter;
 
 Map map;
+HashMap<Integer, BlockEntity> blockEntities;
 PImage[] textures;
 Player player;
 Menu menu = null;
@@ -79,7 +80,8 @@ void setup() {
   textures[BlockId.WoolColoredPurpleBlock] = loadImage("wool_colored_purple.png");
   textures[BlockId.WoolColoredRedBlock] = loadImage("wool_colored_red.png");
   textures[BlockId.WoolColoredYellowBlock] = loadImage("wool_colored_yellow.png");
-  
+
+  blockEntities = new HashMap<Integer, BlockEntity>();
   map = new Map();
 
   player = new Player(256, 0);
