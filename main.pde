@@ -46,7 +46,7 @@ void setup() {
   textures[BlockId.HardenedClayStainedRedBlock] = loadImage("hardened_clay_stained_red.png");
   textures[BlockId.HardenedClayStainedSilverBlock] = loadImage("hardened_clay_stained_silver.png");
   textures[BlockId.HardenedClayStainedWhiteBlock] = loadImage("hardened_clay_stained_white.png");
-  textures[BlockId.HardenedCLayStainedYellowBlock] = loadImage("hardened_clay_stained_yellow.png");
+  textures[BlockId.HardenedClayStainedYellowBlock] = loadImage("hardened_clay_stained_yellow.png");
   textures[BlockId.IronBlock] = loadImage("iron_block.png");
   textures[BlockId.LapisBlock] = loadImage("lapis_block.png");
   textures[BlockId.LeavesSpruceBlock] = loadImage("leaves_spruce.png");
