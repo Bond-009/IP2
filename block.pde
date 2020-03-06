@@ -10,8 +10,8 @@ public static class BlockId {
   final static byte FurnaceFrontOffBlock = 9;
   final static byte FurnaceFrontOnBlock = 10;
   final static byte GrassSideBlock = 11;
-  final static byte HardenedClay = 12;
-  final static byte HardenedClayStainedLightBlue = 13;
+  final static byte HardenedClayBlock = 12;
+  final static byte HardenedClayStainedLightBlueBlock = 13;
   final static byte HardenedClayStainedLimeBlock = 14;
   final static byte HardenedClayStainedMagentaBlock = 15;
   final static byte HardenedClayStainedOrangeBlock = 16;
@@ -32,7 +32,7 @@ public static class BlockId {
   final static byte PlanksSpruceBlock = 31;
   final static byte PortalBlock = 32;
   final static byte PumpkinFaceOffBlock = 33;
-  final static byte RedstoneLampOff = 34;
+  final static byte RedstoneLampOffBlock = 34;
   final static byte RedstoneLampOnBlock =35; 
   final static byte RepeaterOffBlock = 36;
   final static byte RepeaterOnBlock = 37;
@@ -40,9 +40,9 @@ public static class BlockId {
   final static byte SlimeBlock = 39;
   final static byte StoneBlock = 40;
   final static byte StoneSlabBlock = 41;
-  final static byte StonebrickBlock = 42;
+  final static byte StoneBrickBlock = 42;
   final static byte TntBlock = 43;
-  final static byte WoolColoredBlackBlock = 44;
+  final static byte WoolColoredBlueBlock = 44;
   final static byte WoolColoredBrownBlock = 45;
   final static byte WoolColoredCyanBlock = 46;
   final static byte WoolColoredLightBlueBlock =47; 
