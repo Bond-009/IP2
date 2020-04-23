@@ -53,6 +53,11 @@ public static class BlockId {
   final static byte WoolColoredPurpleBlock = 52;
   final static byte WoolColoredRedBlock = 53;
   final static byte WoolColoredYellowBlock = 54;
+  final static byte StoneBrickVineBlock = 55;
+  final static byte StoneVineBlock = 56;
+  final static byte StoneBrickMossyBlock = 57;
+  final static byte LavaBlock = 58;
+  final static byte ChestBlock = 59;
 
   public static boolean isUsable(int blockId) {
     switch (blockId) {
