@@ -80,11 +80,16 @@ void setup() {
   textures[BlockId.WoolColoredPurpleBlock] = loadImage("wool_colored_purple.png");
   textures[BlockId.WoolColoredRedBlock] = loadImage("wool_colored_red.png");
   textures[BlockId.WoolColoredYellowBlock] = loadImage("wool_colored_yellow.png");
+  textures[BlockId.StoneBrickVineBlock] = loadImage("Stonebrick_vine_1.png");
+  textures[BlockId.StoneVineBlock] = loadImage("Stone_vine_1.png");
+  textures[BlockId.StoneBrickMossyBlock] = loadImage("stonebrick_mossy.png");
+  textures[BlockId.LavaBlock] = loadImage("Lava_adjusted.png");
+  textures[BlockId.ChestBlock] = loadImage("chest.png");
 
   blockEntities = new HashMap<Integer, BlockEntity>();
   map = new Map();
 
-  player = new Player(256, 0);
+  player = new Player(48 * BlockHeight, 53 * BlockHeight);
 
   // Draw vignette
   vignette = createGraphics(width, height);
