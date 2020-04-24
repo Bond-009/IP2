@@ -118,6 +118,10 @@ class Map {
     //y= 58
     for (int i = 36; i <= 39; i++) {
       map[58 * MapWidth + i] = BlockId.StoneBrickBlock;
+      
+    //Entities
+    RepeaterBlockEntity repeater = new RepeaterBlockEntity();
+    blockEntities.put(53 * MapWidth + 61, repeater);
     }
   }
 
