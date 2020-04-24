@@ -21,6 +21,39 @@ class Map {
        map[i] = BlockId.StoneBlock;
     }
     
+    //y = 45 (Top second floor/Bottom third floor
+    for (int i = 32; i <= 63; i++) {
+      map[45 * MapWidth + i] = BlockId.StoneBrickBlock;
+    }
+    
+    //y = 46
+    for (int i = 32; i < 64; i++) {
+      map[46 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
+    }
+    map[46 * MapWidth + 32] = BlockId.StoneBrickBlock;
+    map[46 * MapWidth + 63] = BlockId.StoneBrickBlock;
+    
+    //y = 47
+    for (int i = 32; i < 64; i++) {
+      map[47 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
+    }
+    map[47 * MapWidth + 32] = BlockId.StoneBrickBlock;
+    map[47 * MapWidth + 63] = BlockId.StoneBrickBlock;
+    
+    //y = 48
+    for (int i = 32; i < 64; i++) {
+      map[48 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
+    }
+    map[48 * MapWidth + 32] = BlockId.DoorUpperBlock;
+    map[48 * MapWidth + 63] = (byte)(BlockId.DoorUpperBlock | 0x80);
+    
+    //y = 49
+    for (int i = 32; i < 64; i++) {
+      map[49 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
+    }
+    map[49 * MapWidth + 32] = BlockId.DoorLowerBlock;
+    map[49 * MapWidth + 63] = (byte)(BlockId.DoorLowerBlock | 0x80);
+    
     //y = 50 (Top of first floor/Bottom of second floor)
     for (int i = 32; i < 64; i++) {
       map[50 * MapWidth + i] = BlockId.StoneBrickBlock;
