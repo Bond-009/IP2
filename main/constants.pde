@@ -10,6 +10,8 @@ final static int UseDistance = 6 * BlockHeight;
 
 final static int PlayerWidth = BlockHeight;
 final static int PlayerHeigth = BlockHeight * 2;
+final static int PlayerSpawnX = BlockHeight * 48;
+final static int PlayerSpawnY = BlockHeight * 53;
 
 final static boolean DrawFPS = true;
 final static boolean UseOpenGL = true;
