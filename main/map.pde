@@ -21,61 +21,66 @@ class Map {
        map[i] = BlockId.StoneBlock;
     }
     
-    //y = 45 (Top second floor/Bottom third floor
+    // y = 45 (Top second floor/Bottom third floor
     for (int i = 32; i <= 63; i++) {
       map[45 * MapWidth + i] = BlockId.StoneBrickBlock;
     }
     
-    //y = 46
+    // y = 46
     for (int i = 32; i < 64; i++) {
       map[46 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
     map[46 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[46 * MapWidth + 63] = BlockId.StoneBrickBlock;
     
-    //y = 47
+    // y = 47
     for (int i = 32; i < 64; i++) {
       map[47 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
     map[47 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[47 * MapWidth + 63] = BlockId.StoneBrickBlock;
     
-    //y = 48
+    // y = 48
     for (int i = 32; i < 64; i++) {
       map[48 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[48 * MapWidth + 32] = BlockId.DoorUpperBlock;
     map[48 * MapWidth + 63] = (byte)(BlockId.DoorUpperBlock | 0x80);
     
-    //y = 49
+    // y = 49
     for (int i = 32; i < 64; i++) {
       map[49 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[49 * MapWidth + 32] = BlockId.DoorLowerBlock;
     map[49 * MapWidth + 63] = (byte)(BlockId.DoorLowerBlock | 0x80);
     
-    //y = 50 (Top of first floor/Bottom of second floor)
+    // y = 50 (Top of first floor/Bottom of second floor)
     for (int i = 32; i < 64; i++) {
       map[50 * MapWidth + i] = BlockId.StoneBrickBlock;
     }
+
     map[50 * MapWidth + 42] = BlockId.StoneBrickMossyBlock;
     map[50 * MapWidth + 43] = BlockId.StoneBrickMossyBlock;
     map[50 * MapWidth + 44] = BlockId.StoneBrickMossyBlock;
     
-    //y = 51
+    // y = 51
     for (int i = 32; i < 64; i++) {
       map[51 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[51 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[51 * MapWidth + 42] = (byte)(BlockId.StoneVineBlock | 0x80);
     map[51 * MapWidth + 43] = (byte)(BlockId.StoneVineBlock | 0x80);
     map[51 * MapWidth + 44] = BlockId.StoneBrickMossyBlock;
     map[51 * MapWidth + 63] = BlockId.StoneBrickBlock;
     
-    //y = 52
+    // y = 52
     for (int i = 32; i < 64; i++) {
       map[52 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[52 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[52 * MapWidth + 41] = (byte)(BlockId.StoneVineBlock | 0x80);
     map[52 * MapWidth + 42] = (byte)(BlockId.StoneVineBlock | 0x80);
@@ -83,10 +88,11 @@ class Map {
     map[52 * MapWidth + 44] = BlockId.StoneBrickMossyBlock;
     map[52 * MapWidth + 63] = BlockId.StoneBrickBlock;
     
-    //y = 53
+    // y = 53
     for (int i = 32; i < 64; i++) {
       map[53 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[53 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[53 * MapWidth + 41] = (byte)(BlockId.StoneVineBlock | 0x80);
     map[53 * MapWidth + 42] = (byte)(BlockId.StoneVineBlock | 0x80);
@@ -96,10 +102,11 @@ class Map {
     map[53 * MapWidth + 62] = (byte)(BlockId.StoneBlock | 0x80);
     map[53 * MapWidth + 63] = BlockId.DoorUpperBlock;
     
-    //y = 54
+    // y = 54
     for (int i = 32; i < 64; i++) {
       map[54 * MapWidth + i] = (byte)(BlockId.StoneBlock | 0x80);
     }
+
     map[54 * MapWidth + 32] = BlockId.StoneBrickBlock;
     map[54 * MapWidth + 33] = BlockId.ChestBlock;
     map[54 * MapWidth + 42] = (byte)(BlockId.StoneVineBlock | 0x80);
@@ -110,10 +117,11 @@ class Map {
     map[54 * MapWidth + 59] = BlockId.StoneBrickBlock;
     map[54 * MapWidth + 63] = BlockId.DoorLowerBlock;
     
-    //y = 55 (Bottom first floor)
+    // y = 55 (Bottom first floor)
     for (int i = 32; i < 64; i++) {
       map[55 * MapWidth + i] = BlockId.StoneBrickBlock;
     }
+
     map[55 * MapWidth + 37] = (byte)(BlockId.StoneBlock | 0x80);
     map[55 * MapWidth + 38] = (byte)(BlockId.StoneBlock | 0x80);
     map[55 * MapWidth + 44] = BlockId.StoneBrickMossyBlock;
@@ -126,7 +134,7 @@ class Map {
     map[55 * MapWidth + 57] = (byte)(BlockId.StoneBlock | 0x80);
     map[55 * MapWidth + 58] = (byte)(BlockId.StoneBlock | 0x80);
     
-    //y = 56 (Lava first layer)
+    // y = 56 (Lava first layer)
     map[56 * MapWidth + 36] = BlockId.StoneBrickBlock;
     map[56 * MapWidth + 37] = (byte)(BlockId.StoneBlock | 0x80);
     map[56 * MapWidth + 38] = (byte)(BlockId.StoneBlock | 0x80);
@@ -139,7 +147,7 @@ class Map {
     map[56 * MapWidth + 58] = BlockId.LavaBlock;
     map[56 * MapWidth + 59] = BlockId.StoneBrickBlock;
     
-    //y = 57 (Lava second layer)
+    // y = 57 (Lava second layer)
     map[57 * MapWidth + 36] = BlockId.StoneBrickBlock;
     map[57 * MapWidth + 37] = BlockId.LavaBlock;
     map[57 * MapWidth + 38] = BlockId.LavaBlock;
@@ -148,14 +156,14 @@ class Map {
       map[57 * MapWidth + i] = BlockId.StoneBrickBlock;
     }
     
-    //y= 58
+    // y= 58
     for (int i = 36; i <= 39; i++) {
       map[58 * MapWidth + i] = BlockId.StoneBrickBlock;
-      
-    //Entities
+    }
+    
+    // Block Entities
     RepeaterBlockEntity repeater = new RepeaterBlockEntity();
     blockEntities.put(53 * MapWidth + 61, repeater);
-    }
   }
 
   int getMapPos(int x, int y) {

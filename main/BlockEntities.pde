@@ -38,3 +38,5 @@ class RepeaterBlockEntity extends BlockEntity {
     }
 
     return true;
+  }
+}
