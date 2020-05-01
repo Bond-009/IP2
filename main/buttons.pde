@@ -1,5 +1,3 @@
-final static int BorderWidth = 4;
-
 abstract class Button {
   public Button(int x, int y, int bWidth, int bHeight, String text) {
     X = x;

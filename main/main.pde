@@ -4,6 +4,7 @@ static int heightCenter;
 Map map;
 HashMap<Integer, BlockEntity> blockEntities;
 PImage[] textures;
+PImage[] playerTextures;
 Player player;
 Menu menu = null;
 PGraphics vignette;
@@ -16,14 +17,14 @@ void setup() {
     hint(DISABLE_TEXTURE_MIPMAPS);
     ((PGraphicsOpenGL)g).textureSampling(2);
   }
-  
+
   widthCenter = width / 2;
   heightCenter = height / 2;
 
   pixelDensity(1);
   noStroke();
   noSmooth();
-  
+
   // Load textures
   textures = new PImage[128];
   textures[BlockId.BedrockBlock] = loadImage("bedrock.png");
@@ -109,6 +110,12 @@ void setup() {
   textures[BlockId.DBlock] = loadImage("pixl_d.png");
   textures[BlockId.ArrowBlock] = loadImage("pixl_arrow.png");
 
+  playerTextures = new PImage[4];
+  playerTextures[0] = loadImage("player_right.png");
+  playerTextures[1] = loadImage("player_left.png");
+  playerTextures[2] = loadImage("player_dyn_right.png");
+  playerTextures[3] = loadImage("player_dyn_left.png");
+
   blockEntities = new HashMap<Integer, BlockEntity>();
   map = new Map();
 
@@ -126,9 +133,9 @@ void setup() {
       if (dist > lightDistance) {
         vignette.stroke(0);
         vignette.point(px, py);
-    } /*
-    REVIEW: transition doesn't function:
-    else if (dist > lightDistance - 48) {
+      } /*
+      REVIEW: transition doesn't function:
+      else if (dist > lightDistance - 48) {
         vignette.stroke(0, 255 - (dist - lightDistance + 48) / 48 * 255);
         vignette.point(px, py);
       } */

@@ -21,7 +21,7 @@ void draw() {
 }
 
 void drawGame() {
-  clear();
+  background(127, 172, 255);
 
   int blockX = player.PosX / BlockHeight;
   int blockY = player.PosY / BlockHeight;
@@ -55,7 +55,6 @@ void drawGame() {
   //text("Pos: (" + blockX + ", " + blockY + ")", 0, 32);
 
   player.draw();
-
 
   int relMouseX = mouseX - widthCenter;
   int relMouseY = mouseY - heightCenter;

@@ -33,7 +33,7 @@ public static class BlockId {
   final static byte PortalBlock = 32;
   final static byte PumpkinFaceOffBlock = 33;
   final static byte RedstoneLampOffBlock = 34;
-  final static byte RedstoneLampOnBlock =35; 
+  final static byte RedstoneLampOnBlock =35;
   final static byte RepeaterOffBlock = 36;
   final static byte RepeaterOnBlock = 37;
   final static byte SandBlock = 38;
@@ -45,7 +45,7 @@ public static class BlockId {
   final static byte WoolColoredBlueBlock = 44;
   final static byte WoolColoredBrownBlock = 45;
   final static byte WoolColoredCyanBlock = 46;
-  final static byte WoolColoredLightBlueBlock =47; 
+  final static byte WoolColoredLightBlueBlock =47;
   final static byte WoolColoredLimeBlock = 48;
   final static byte WoolColoredMagentaBlock = 49;
   final static byte WoolColoredOrangeBlock = 50;
