@@ -51,7 +51,7 @@ void setup() {
   textures[BlockId.IronBlock] = loadImage("iron_block.png");
   textures[BlockId.LapisBlock] = loadImage("lapis_block.png");
   textures[BlockId.LeavesSpruceBlock] = loadImage("leaves_spruce.png");
-  textures[BlockId.LogOakBlock] = loadImage("log_oak.png");
+  textures[BlockId.LogOakHorBlock] = loadImage("log_oak_hor.png");
   textures[BlockId.LogOakTopBlock] = loadImage("log_oak_top.png");
   textures[BlockId.MushroomSkinRedBlock] = loadImage("mushroom_block_skin_red.png");
   textures[BlockId.MushroomSkinStemBlock] = loadImage("mushroom_block_skin_stem.png");
@@ -80,16 +80,39 @@ void setup() {
   textures[BlockId.WoolColoredPurpleBlock] = loadImage("wool_colored_purple.png");
   textures[BlockId.WoolColoredRedBlock] = loadImage("wool_colored_red.png");
   textures[BlockId.WoolColoredYellowBlock] = loadImage("wool_colored_yellow.png");
-  textures[BlockId.StoneBrickVineBlock] = loadImage("stonebrick_vine_1.png");
+  textures[BlockId.StoneBrickVineBlock] = loadImage("stonebrick_vine.png");
   textures[BlockId.StoneVineBlock] = loadImage("stone_vine.png");
   textures[BlockId.StoneBrickMossyBlock] = loadImage("stonebrick_mossy.png");
   textures[BlockId.LavaBlock] = loadImage("lava.png");
   textures[BlockId.ChestBlock] = loadImage("chest.png");
+  textures[BlockId.VaultBlock] = loadImage("dispenser_front_vertical.png");
+  textures[BlockId.LogOakVerBlock] = loadImage("log_oak_ver.png");
+  textures[BlockId.LogOakStrippedBlock] = loadImage("log_oak_stripped.png");
+  textures[BlockId.KeyGoldBlock] = loadImage("key_gold.png");
+  textures[BlockId.KeySilverBlock] = loadImage("key_silver.png");
+  textures[BlockId.KeyCopperBlock] = loadImage("key_copper.png");
+  textures[BlockId.StoneBrickBleachedBlock] = loadImage("stonebrick_bleached.png");
+  textures[BlockId.StoneDarkenedBlock] = loadImage("stone_darkened.png");
+  textures[BlockId.StoneButtonBlock] = loadImage("stonewithbutton.png");
+  textures[BlockId.BarrelBlock] = loadImage("barrel.png");
+  textures[BlockId.StoneWebBlock] = loadImage("stone_web.png");
+  textures[BlockId.PlanksOakWebBlock] = loadImage("planks_oak_web.png");
+  textures[BlockId.StoneTorchBlock] = loadImage("stone_torch.png");
+  textures[BlockId.GBlock] = loadImage("pixl_g.png");
+  textures[BlockId.ABlock] = loadImage("pixl_a.png");
+  textures[BlockId.MBlock] = loadImage("pixl_m.png");
+  textures[BlockId.EBlock] = loadImage("pixl_e.png");
+  textures[BlockId.OBlock] = loadImage("pixl_o.png");
+  textures[BlockId.VBlock] = loadImage("pixl_v.png");
+  textures[BlockId.RBlock] = loadImage("pixl_r.png");
+  textures[BlockId.NBlock] = loadImage("pixl_n.png");
+  textures[BlockId.DBlock] = loadImage("pixl_d.png");
+  textures[BlockId.ArrowBlock] = loadImage("pixl_arrow.png");
 
   blockEntities = new HashMap<Integer, BlockEntity>();
   map = new Map();
 
-  player = new Player(48 * BlockHeight, 53 * BlockHeight);
+  player = new Player(PlayerSpawnX, PlayerSpawnY);
 
   // Draw vignette
   vignette = createGraphics(width, height);
