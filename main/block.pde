@@ -24,7 +24,7 @@ public static class BlockId {
   final static byte IronBlock = 23;
   final static byte LapisBlock = 24;
   final static byte LeavesSpruceBlock = 25;
-  final static byte LogOakBlock = 26;
+  final static byte LogOakHorBlock = 26;
   final static byte LogOakTopBlock = 27;
   final static byte MushroomSkinRedBlock = 28;
   final static byte MushroomSkinStemBlock = 29;
@@ -58,6 +58,29 @@ public static class BlockId {
   final static byte StoneBrickMossyBlock = 57;
   final static byte LavaBlock = 58;
   final static byte ChestBlock = 59;
+  final static byte VaultBlock = 60;
+  final static byte LogOakVerBlock = 61;
+  final static byte LogOakStrippedBlock = 62;
+  final static byte KeyGoldBlock = 63;
+  final static byte KeySilverBlock = 64;
+  final static byte KeyCopperBlock = 65;
+  final static byte StoneBrickBleachedBlock = 66;
+  final static byte StoneDarkenedBlock = 67;
+  final static byte StoneButtonBlock = 68;
+  final static byte BarrelBlock = 69;
+  final static byte StoneWebBlock = 70;
+  final static byte PlanksOakWebBlock = 71;
+  final static byte StoneTorchBlock = 72;
+  final static byte GBlock = 73;
+  final static byte ABlock = 74;
+  final static byte MBlock = 75;
+  final static byte EBlock = 76;
+  final static byte OBlock = 77;
+  final static byte VBlock = 78;
+  final static byte RBlock = 79;
+  final static byte NBlock = 80;
+  final static byte DBlock = 81;
+  final static byte ArrowBlock = 82;
 
   public static boolean isUsable(int blockId) {
     switch (blockId) {
