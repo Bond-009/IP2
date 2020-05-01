@@ -4,6 +4,7 @@ static int heightCenter;
 Map map;
 HashMap<Integer, BlockEntity> blockEntities;
 PImage[] textures;
+PImage[] playerTextures;
 Player player;
 Menu menu = null;
 PGraphics vignette;
@@ -80,16 +81,22 @@ void setup() {
   textures[BlockId.WoolColoredPurpleBlock] = loadImage("wool_colored_purple.png");
   textures[BlockId.WoolColoredRedBlock] = loadImage("wool_colored_red.png");
   textures[BlockId.WoolColoredYellowBlock] = loadImage("wool_colored_yellow.png");
-  textures[BlockId.StoneBrickVineBlock] = loadImage("stonebrick_vine_1.png");
+  textures[BlockId.StoneBrickVineBlock] = loadImage("stonebrick_vine.png");
   textures[BlockId.StoneVineBlock] = loadImage("stone_vine.png");
   textures[BlockId.StoneBrickMossyBlock] = loadImage("stonebrick_mossy.png");
   textures[BlockId.LavaBlock] = loadImage("lava.png");
   textures[BlockId.ChestBlock] = loadImage("chest.png");
+  
+  playerTextures = new PImage[4];
+  playerTextures[0] = loadImage("player_right.png");
+  playerTextures[1] = loadImage("player_left.png");
+  playerTextures[2] = loadImage("player_dyn_right.png");
+  playerTextures[3] = loadImage("player_dyn_left.png");
 
   blockEntities = new HashMap<Integer, BlockEntity>();
   map = new Map();
 
-  player = new Player(48 * BlockHeight, 53 * BlockHeight);
+  player = new Player(PlayerSpawnX, PlayerSpawnY);
 
   // Draw vignette
   vignette = createGraphics(width, height);
@@ -103,9 +110,9 @@ void setup() {
       if (dist > lightDistance) {
         vignette.stroke(0);
         vignette.point(px, py);
-    } /*
-    REVIEW: transition doesn't function:
-    else if (dist > lightDistance - 48) {
+      } /*
+      REVIEW: transition doesn't function:
+      else if (dist > lightDistance - 48) {
         vignette.stroke(0, 255 - (dist - lightDistance + 48) / 48 * 255);
         vignette.point(px, py);
       } */

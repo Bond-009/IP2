@@ -1,8 +1,8 @@
-abstract class BlockEntity {
-  abstract boolean use(int x, int y, Player player);
+public abstract class BlockEntity {
+  public abstract boolean use(int x, int y, Player player);
 }
 
-class DoorBlockEntity extends BlockEntity {
+public class DoorBlockEntity extends BlockEntity {
   boolean use(int x, int y, Player player) {
     byte info = map.getBlockInfo(x, y);
     byte blockType = (byte)(info & 0x7f);
@@ -23,7 +23,26 @@ class DoorBlockEntity extends BlockEntity {
   }
 }
 
-class RepeaterBlockEntity extends BlockEntity {
+public class LockedDoorBlockEntity extends DoorBlockEntity {
+  public byte KeyId;
+  
+  public LockedDoorBlockEntity(byte keyId) {
+    KeyId = keyId;
+  }
+  
+  boolean use(int x, int y, Player player) {
+    for (int i = 0; i <= player.LastItem; i++) {
+      if (player.Inventory[i] == KeyId)
+      {
+        return super.use(x, y, player); 
+      }
+    }
+    
+    return false;
+  }
+}
+
+public class RepeaterBlockEntity extends BlockEntity {
   boolean use(int x, int y, Player player) {
     byte info = map.getBlockInfo(x, y);
     byte blockType = (byte)(info & 0x7f);

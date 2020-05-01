@@ -58,6 +58,8 @@ public static class BlockId {
   final static byte StoneBrickMossyBlock = 57;
   final static byte LavaBlock = 58;
   final static byte ChestBlock = 59;
+  final static byte BronzeKey = 63;
+  final static byte GoldenKey = 64;
 
   public static boolean isUsable(int blockId) {
     switch (blockId) {

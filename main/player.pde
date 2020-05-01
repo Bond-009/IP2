@@ -3,20 +3,49 @@ public class Player {
     PosX = posX;
     PosY = posY;
 
-    playerTextures = new PImage[4];
-    playerTextures[0] = loadImage("player_right.png");
-    playerTextures[1] = loadImage("player_left.png");
-    playerTextures[2] = loadImage("player_dyn_right.png");
-    playerTextures[3] = loadImage("player_dyn_left.png");
+    Inventory = new byte[PlayerInventorySize];
+    LastItem = 0;
+    
+    inventoryGraphic = createGraphics(PlayerInventorySize * InventoryHeight, InventoryHeight, UseOpenGL ? P2D : JAVA2D);
+    inventoryGraphic.noSmooth();
+    inventoryGraphic.beginDraw();
+    inventoryGraphic.noStroke();
+    
+    inventoryGraphic.fill(150, 150, 150);
+    for (int i = 0; i < PlayerInventorySize * InventoryHeight; i += InventoryHeight) {
+      inventoryGraphic.rect(i, 0, BorderWidth, InventoryHeight);
+      inventoryGraphic.rect((i + InventoryHeight) - BorderWidth, 0, BorderWidth, InventoryHeight);
+    }
+    
+    inventoryGraphic.rect(0, 0, PlayerInventorySize * InventoryHeight, BorderWidth);
+    inventoryGraphic.rect(0, InventoryHeight - BorderWidth, PlayerInventorySize * InventoryHeight, BorderWidth);
+    
+    inventoryGraphic.fill(70, 70, 70);
+    for (int i = 0; i < PlayerInventorySize * InventoryHeight; i += InventoryHeight) {
+      inventoryGraphic.rect(i + HalfBorderWidth, 0, HalfBorderWidth, InventoryHeight);
+      inventoryGraphic.rect((i + InventoryHeight) - BorderWidth, 0, HalfBorderWidth, InventoryHeight);
+    }
+    
+    inventoryGraphic.rect(0, HalfBorderWidth, PlayerInventorySize * InventoryHeight, HalfBorderWidth);
+    inventoryGraphic.rect(0, InventoryHeight - BorderWidth, PlayerInventorySize * InventoryHeight, HalfBorderWidth);
+
+    inventoryGraphic.endDraw();
   }
+  
 
   public int PosX;
   public int PosY;
+  
+  public byte[] Inventory;
+  public int LastItem;
+  
+  PGraphics inventoryGraphic;
+
   Running running = Running.No;
   /// Previous running state
   Running pRunning = Running.No;
 
-  PImage[] playerTextures;
+  
   int framesJumping = -1;
 
   // Jump length in frames
@@ -102,6 +131,10 @@ public class Player {
         break;
     }
 
+    int invX = widthCenter - (PlayerInventorySize * InventoryHeight) / 2;
+    fill(100, 100, 100, 75);
+    rect(invX, height - InventoryHeight - BorderWidth, PlayerInventorySize * InventoryHeight, InventoryHeight);
+    image(inventoryGraphic, invX, height - InventoryHeight - BorderWidth);
   }
 
   public boolean isJumping() {
@@ -126,6 +159,15 @@ public class Player {
     }
     
     blockEntity.use(x, y, this);
+  }
+  
+  public boolean addToInventory(byte id) {
+    if (LastItem < PlayerInventorySize) {
+      Inventory[LastItem++] = id;
+      return true;
+    }
+    
+    return false;
   }
 }
 

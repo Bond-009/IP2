@@ -4,20 +4,16 @@ class Map {
   public Map() {
     // Create map
     map = new byte[MapLength];
-
-    for (int i = 0; i < MapHeight * MapWidth; i++) {
-       map[i] = (byte)(BlockId.HardenedClayStainedLightBlueBlock | 0x80);
-    }
     
-    for (int i = 21 * MapWidth; i < 22 * MapWidth; i++) {
+    for (int i = 45 * MapWidth; i < 46 * MapWidth; i++) {
        map[i] = BlockId.GrassSideBlock;
     }
     
-    for (int i = 22 * MapWidth; i < 24 * MapWidth; i++) {
+    for (int i = 46 * MapWidth; i < 48 * MapWidth; i++) {
        map[i] = BlockId.DirtBlock;
     }
 
-    for (int i = 24 * MapWidth; i < MapLength; i++) {
+    for (int i = 48 * MapWidth; i < MapLength; i++) {
        map[i] = BlockId.StoneBlock;
     }
     
@@ -164,6 +160,16 @@ class Map {
     // Block Entities
     RepeaterBlockEntity repeater = new RepeaterBlockEntity();
     blockEntities.put(53 * MapWidth + 61, repeater);
+    
+    LockedDoorBlockEntity lockedDoor1Lower = new LockedDoorBlockEntity(BlockId.BronzeKey);
+    blockEntities.put(54 * MapWidth + 63, lockedDoor1Lower);
+    LockedDoorBlockEntity lockedDoor1Upper = new LockedDoorBlockEntity(BlockId.BronzeKey);
+    blockEntities.put(53 * MapWidth + 63, lockedDoor1Upper);
+    
+    LockedDoorBlockEntity lockedDoor2Lower = new LockedDoorBlockEntity(BlockId.GoldenKey);
+    blockEntities.put(54 * MapWidth + 63, lockedDoor1Lower);
+    LockedDoorBlockEntity lockedDoor2Upper = new LockedDoorBlockEntity(BlockId.GoldenKey);
+    blockEntities.put(53 * MapWidth + 63, lockedDoor1Upper);
   }
 
   int getMapPos(int x, int y) {
