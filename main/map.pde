@@ -400,9 +400,9 @@ class Map {
     RepeaterBlockEntity repeater = new RepeaterBlockEntity();
     blockEntities.put(53 * MapWidth + 61, repeater);
 
-    LockedDoorBlockEntity lockedDoor1Lower = new LockedDoorBlockEntity(BlockId.BronzeKey);
+    LockedDoorBlockEntity lockedDoor1Lower = new LockedDoorBlockEntity(BlockId.CopperKey);
     blockEntities.put(54 * MapWidth + 63, lockedDoor1Lower);
-    LockedDoorBlockEntity lockedDoor1Upper = new LockedDoorBlockEntity(BlockId.BronzeKey);
+    LockedDoorBlockEntity lockedDoor1Upper = new LockedDoorBlockEntity(BlockId.CopperKey);
     blockEntities.put(53 * MapWidth + 63, lockedDoor1Upper);
 
     LockedDoorBlockEntity lockedDoor2Lower = new LockedDoorBlockEntity(BlockId.GoldenKey);

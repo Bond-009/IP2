@@ -61,9 +61,9 @@ public static class BlockId {
   final static byte VaultBlock = 60;
   final static byte LogOakVerBlock = 61;
   final static byte LogOakStrippedBlock = 62;
-  final static byte KeyGoldBlock = 63;
-  final static byte KeySilverBlock = 64;
-  final static byte KeyCopperBlock = 65;
+  final static byte GoldenKey = 63;
+  final static byte SilverKey = 64;
+  final static byte CopperKey = 65;
   final static byte StoneBrickBleachedBlock = 66;
   final static byte StoneDarkenedBlock = 67;
   final static byte StoneButtonBlock = 68;

@@ -89,9 +89,9 @@ void setup() {
   textures[BlockId.VaultBlock] = loadImage("dispenser_front_vertical.png");
   textures[BlockId.LogOakVerBlock] = loadImage("log_oak_ver.png");
   textures[BlockId.LogOakStrippedBlock] = loadImage("log_oak_stripped.png");
-  textures[BlockId.KeyGoldBlock] = loadImage("key_gold.png");
-  textures[BlockId.KeySilverBlock] = loadImage("key_silver.png");
-  textures[BlockId.KeyCopperBlock] = loadImage("key_copper.png");
+  textures[BlockId.GoldenKey] = loadImage("key_gold.png");
+  textures[BlockId.SilverKey] = loadImage("key_silver.png");
+  textures[BlockId.CopperKey] = loadImage("key_copper.png");
   textures[BlockId.StoneBrickBleachedBlock] = loadImage("stonebrick_bleached.png");
   textures[BlockId.StoneDarkenedBlock] = loadImage("stone_darkened.png");
   textures[BlockId.StoneButtonBlock] = loadImage("stonewithbutton.png");
