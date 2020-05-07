@@ -453,25 +453,21 @@ class Map {
     blockEntities.put(54 * MapWidth + 64, portal1);
     blockEntities.put(53 * MapWidth + 64, portal1);
     
-    PortalBlockEntity portal2Lower = new PortalBlockEntity(64, 53);
-    blockEntities.put(49 * MapWidth + 64, portal2Lower);
-    PortalBlockEntity portal2Upper = new PortalBlockEntity(64, 53);
-    blockEntities.put(48 * MapWidth + 64, portal2Upper);
+    PortalBlockEntity portal2 = new PortalBlockEntity(64, 53);
+    blockEntities.put(49 * MapWidth + 64, portal2);
+    blockEntities.put(48 * MapWidth + 64, portal2);
     
-    PortalBlockEntity portal3Lower = new PortalBlockEntity(48, 53);
-    blockEntities.put(50 * MapWidth + 37, portal3Lower);
-    PortalBlockEntity portal3Upper = new PortalBlockEntity(48, 53);
-    blockEntities.put(49 * MapWidth + 37, portal3Upper);
+    PortalBlockEntity portal3 = new PortalBlockEntity(48, 53);
+    blockEntities.put(50 * MapWidth + 37, portal3);
+    blockEntities.put(49 * MapWidth + 37, portal3);
     
-    PortalBlockEntity portal4Lower = new PortalBlockEntity(33, 43);
-    blockEntities.put(50 * MapWidth + 33, portal4Lower);
-    PortalBlockEntity portal4Upper = new PortalBlockEntity(33, 43);
-    blockEntities.put(49 * MapWidth + 33, portal4Upper);
+    PortalBlockEntity portal4 = new PortalBlockEntity(33, 43);
+    blockEntities.put(50 * MapWidth + 33, portal4);
+    blockEntities.put(49 * MapWidth + 33, portal4);
     
-    PortalBlockEntity portal5Lower = new PortalBlockEntity(33, 49);
-    blockEntities.put(44 * MapWidth + 33, portal5Lower);
-    PortalBlockEntity portal5Upper = new PortalBlockEntity(33, 49);
-    blockEntities.put(43 * MapWidth + 33, portal5Upper);
+    PortalBlockEntity portal5 = new PortalBlockEntity(33, 49);
+    blockEntities.put(44 * MapWidth + 33, portal5);
+    blockEntities.put(43 * MapWidth + 33, portal5);
   }
 
   int getMapPos(int x, int y) {
