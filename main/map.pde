@@ -4,6 +4,10 @@ class Map {
   public Map() {
     // Create map
     map = new byte[MapLength];
+    for (int i = 0 * MapWidth; i < 45 * MapWidth; i++) {
+       map[i] = (byte)0x80;
+    }
+    
     for (int i = 45 * MapWidth; i < 46 * MapWidth; i++) {
        map[i] = BlockId.GrassSideBlock;
     }
@@ -166,7 +170,7 @@ class Map {
     }
     map[43 * MapWidth + 32] = BlockId.MushroomSkinStemBlock;
     map[43 * MapWidth + 33] = (byte)(BlockId.PortalBlock | 0x80);
-    map[43 * MapWidth + 36] = (byte)(BlockId.VaultBlock);
+    map[43 * MapWidth + 36] = (byte)(BlockId.VaultBlock | 0x80);
     map[43 * MapWidth + 40] = BlockId.DoorUpperBlock;
     map[43 * MapWidth + 47] = BlockId.MushroomSkinStemBlock;
     map[43 * MapWidth + 50] = (byte)(BlockId.OBlock | 0x80);
@@ -397,18 +401,77 @@ class Map {
     }
 
     // Block Entities
-    RepeaterBlockEntity repeater = new RepeaterBlockEntity();
+    ChestBlockEntity chest1 = new ChestBlockEntity(BlockId.CopperKey);
+    blockEntities.put(54 * MapWidth + 33, chest1);
+    
+    ChestBlockEntity chest2 = new ChestBlockEntity(BlockId.SilverKey);
+    blockEntities.put(49 * MapWidth + 58, chest2);
+    
+    LockedChestBlockEntity lockedChest = new LockedChestBlockEntity(BlockId.SilverKey, BlockId.GoldenKey);
+    blockEntities.put(43 * MapWidth + 36, lockedChest);
+    
+    RepeaterBlockEntity repeater = new RepeaterBlockEntity(new Runnable() {
+      public void run() {
+        map[52 * MapWidth + 44] = (byte)(BlockId.StoneBrickMossyBlock | 0x80);
+        map[53 * MapWidth + 44] = (byte)(BlockId.StoneBrickMossyBlock | 0x80);
+        map[54 * MapWidth + 44] = (byte)(BlockId.StoneBrickMossyBlock | 0x80);
+      }
+    });
     blockEntities.put(53 * MapWidth + 61, repeater);
+    
+    HiddenSwitchBlockEntity hiddenSwitch = new HiddenSwitchBlockEntity(new Runnable() {
+      public void run() {
+        map[41 * MapWidth + 47] = (byte)(BlockId.MushroomSkinStemBlock | 0x80);
+        map[42 * MapWidth + 47] = (byte)(BlockId.MushroomSkinStemBlock | 0x80);
+        map[43 * MapWidth + 47] = (byte)(BlockId.MushroomSkinStemBlock | 0x80);
+        map[44 * MapWidth + 47] = (byte)(BlockId.MushroomSkinStemBlock | 0x80);
+      }
+    });
+    blockEntities.put(43 * MapWidth + 44, hiddenSwitch);
+    
+    HiddenSwitchBlockEntity hiddenKillSwitch = new HiddenSwitchBlockEntity(new Runnable() {
+      public void run() {
+        exit();
+      }
+    });
+    blockEntities.put(44 * MapWidth + 89, hiddenKillSwitch);
+    blockEntities.put(43 * MapWidth + 89, hiddenKillSwitch);
+    
+    DoorBlockEntity door = new DoorBlockEntity();
+    blockEntities.put(44 * MapWidth + 63, door);
+    blockEntities.put(43 * MapWidth + 63, door);
 
-    LockedDoorBlockEntity lockedDoor1Lower = new LockedDoorBlockEntity(BlockId.CopperKey);
-    blockEntities.put(54 * MapWidth + 63, lockedDoor1Lower);
-    LockedDoorBlockEntity lockedDoor1Upper = new LockedDoorBlockEntity(BlockId.CopperKey);
-    blockEntities.put(53 * MapWidth + 63, lockedDoor1Upper);
+    LockedDoorBlockEntity lockedDoor1 = new LockedDoorBlockEntity(BlockId.CopperKey);
+    blockEntities.put(54 * MapWidth + 63, lockedDoor1);
+    blockEntities.put(53 * MapWidth + 63, lockedDoor1);
 
-    LockedDoorBlockEntity lockedDoor2Lower = new LockedDoorBlockEntity(BlockId.GoldenKey);
-    blockEntities.put(54 * MapWidth + 63, lockedDoor1Lower);
-    LockedDoorBlockEntity lockedDoor2Upper = new LockedDoorBlockEntity(BlockId.GoldenKey);
-    blockEntities.put(53 * MapWidth + 63, lockedDoor1Upper);
+    LockedDoorBlockEntity lockedDoor2 = new LockedDoorBlockEntity(BlockId.GoldenKey);
+    blockEntities.put(43 * MapWidth + 40, lockedDoor2);
+    blockEntities.put(44 * MapWidth + 40, lockedDoor2);
+    
+    PortalBlockEntity portal1 = new PortalBlockEntity(64, 48);
+    blockEntities.put(54 * MapWidth + 64, portal1);
+    blockEntities.put(53 * MapWidth + 64, portal1);
+    
+    PortalBlockEntity portal2Lower = new PortalBlockEntity(64, 53);
+    blockEntities.put(49 * MapWidth + 64, portal2Lower);
+    PortalBlockEntity portal2Upper = new PortalBlockEntity(64, 53);
+    blockEntities.put(48 * MapWidth + 64, portal2Upper);
+    
+    PortalBlockEntity portal3Lower = new PortalBlockEntity(48, 53);
+    blockEntities.put(50 * MapWidth + 37, portal3Lower);
+    PortalBlockEntity portal3Upper = new PortalBlockEntity(48, 53);
+    blockEntities.put(49 * MapWidth + 37, portal3Upper);
+    
+    PortalBlockEntity portal4Lower = new PortalBlockEntity(33, 43);
+    blockEntities.put(50 * MapWidth + 33, portal4Lower);
+    PortalBlockEntity portal4Upper = new PortalBlockEntity(33, 43);
+    blockEntities.put(49 * MapWidth + 33, portal4Upper);
+    
+    PortalBlockEntity portal5Lower = new PortalBlockEntity(33, 49);
+    blockEntities.put(44 * MapWidth + 33, portal5Lower);
+    PortalBlockEntity portal5Upper = new PortalBlockEntity(33, 49);
+    blockEntities.put(43 * MapWidth + 33, portal5Upper);
   }
 
   int getMapPos(int x, int y) {

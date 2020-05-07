@@ -57,8 +57,8 @@ public class Player {
     {
       case Left:
         if ((map.getBlockInfo((player.PosX - 1) / BlockHeight, player.PosY / BlockHeight) & 0x80) != 0x80
-         || (map.getBlockInfo((player.PosX - 1) / BlockHeight, player.PosY / BlockHeight + 1) & 0x80) != 0x80
-         || (map.getBlockInfo((player.PosX - 1) / BlockHeight, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
+          || (map.getBlockInfo((player.PosX - 1) / BlockHeight, player.PosY / BlockHeight + 1) & 0x80) != 0x80
+          || (map.getBlockInfo((player.PosX - 1) / BlockHeight, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
         {
           break;
         }
@@ -67,8 +67,8 @@ public class Player {
         break;
       case Right:
         if ((map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight) & 0x80) != 0x80
-         || (map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight + 1) & 0x80) != 0x80
-         || (map.getBlockInfo(player.PosX / BlockHeight + 1, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
+          || (map.getBlockInfo(player.PosX / BlockHeight + 1, player.PosY / BlockHeight + 1) & 0x80) != 0x80
+          || (map.getBlockInfo(player.PosX / BlockHeight + 1, (player.PosY - 1) / BlockHeight + 2) & 0x80) != 0x80)
         {
           break;
         }
@@ -135,6 +135,9 @@ public class Player {
     fill(100, 100, 100, 75);
     rect(invX, height - InventoryHeight - BorderWidth, PlayerInventorySize * InventoryHeight, InventoryHeight);
     image(inventoryGraphic, invX, height - InventoryHeight - BorderWidth);
+    for (int i = 0; i < player.LastItem; i++) {
+      image(textures[player.Inventory[i]], invX + BorderWidth + i * InventoryHeight, height - InventoryHeight, BlockHeight * 2, BlockHeight * 2);
+    }
   }
 
   public boolean isJumping() {
@@ -172,7 +175,7 @@ public class Player {
 }
 
 enum Running {
-    No,
-    Right,
-    Left
+  No,
+  Right,
+  Left
 }

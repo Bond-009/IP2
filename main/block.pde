@@ -84,8 +84,13 @@ public static class BlockId {
 
   public static boolean isUsable(int blockId) {
     switch (blockId) {
+      case BarrelBlock:
+      case BookshelfBlock:
+      case ChestBlock:
+      case VaultBlock:
       case DoorLowerBlock:
       case DoorUpperBlock:
+      case PortalBlock:
       case RepeaterOffBlock:
       case RepeaterOnBlock:
         return true;

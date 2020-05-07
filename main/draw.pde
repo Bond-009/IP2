@@ -33,13 +33,12 @@ void drawGame() {
   for (int x = -RenderDistance; x < RenderDistance; x++) {
     for (int y = -RenderDistance; y < RenderDistance; y++) {
       byte blockInfo = map.getBlockInfo(blockX + x, blockY + y);
-      if (blockInfo == 0) {
+      byte blockType = (byte)(blockInfo & 0x7f);
+      if (blockType == 0) {
         // Block is out of bounds, draw nothing
         // println("Block out of bounds (" + (blockY + y) + ", " + (blockX + x) + ")");
         continue;
       }
-
-      byte blockType = (byte)(blockInfo & 0x7f);
       image(textures[blockType], widthCenter - pixelX + x * BlockHeight, heightCenter - pixelY + y * BlockHeight, BlockHeight, BlockHeight);
       if ((blockInfo & 0x80) == 0x80) {
         fill(33, 33, 33, 100);
